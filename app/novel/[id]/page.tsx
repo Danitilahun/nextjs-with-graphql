@@ -2,6 +2,7 @@
 
 import { ADD_AUTHOR, DELETE_AUTHOR, UPDATE_NOVEL } from "@/graphql/mutation";
 import { GET_NOVEL } from "@/graphql/queries";
+import { INovel } from "@/typings";
 import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 
@@ -19,6 +20,8 @@ const Novel = ({ params: { id } }: Props) => {
   const { data, loading, error } = useQuery(GET_NOVEL, {
     variables: { id },
   });
+
+  const novel: INovel = data?.novel;
 
   const [addAuthor] = useMutation(ADD_AUTHOR, {
     variables: { novelId: id, name },
@@ -47,7 +50,7 @@ const Novel = ({ params: { id } }: Props) => {
       </p>
     );
 
-  return <></>;
+  return <article className=""></article>;
 };
 
 export default Novel;
