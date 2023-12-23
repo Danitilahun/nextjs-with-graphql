@@ -15,5 +15,10 @@ type Novel {
     novelId: String
   };
 
+  type Query {
+	novel(id: ID!): Novel 
+    novels: [Novel]
+
+  };
 
 `;
