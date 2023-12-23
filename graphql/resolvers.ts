@@ -18,4 +18,15 @@ export const resolvers = {
       });
     },
   },
+
+  // nested resolve function to get auhtors in novels
+  Novel: {
+    authors: async (parent: any, _args: any, context: Context) => {
+      return await context.prisma.author.findMany({
+        where: {
+          novelId: parent.id,
+        },
+      });
+    },
+  },
 };
