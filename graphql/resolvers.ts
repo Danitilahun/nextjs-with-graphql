@@ -39,5 +39,18 @@ export const resolvers = {
         },
       });
     },
+
+    // update novel
+    updateNovel: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.novel.update({
+        where: {
+          id: args.id,
+        },
+        data: {
+          title: args.title,
+          image: args.image,
+        },
+      });
+    },
   },
 };
