@@ -33,6 +33,20 @@ const Novel = ({ params: { id } }: Props) => {
     variables: { id: id, title: title, image: url },
     refetchQueries: [{ query: GET_NOVEL, variables: { id } }],
   });
+
+  if (loading)
+    return (
+      <p className="text-white flex items-center justify-center">
+        Loading ....
+      </p>
+    );
+  if (error)
+    return (
+      <p className="text-white flex items-center justify-center">
+        Oops! Something went wrong ....
+      </p>
+    );
+
   return <></>;
 };
 
