@@ -73,5 +73,14 @@ export const resolvers = {
         },
       });
     },
+
+    // delete author
+    deleteAuthor: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.author.delete({
+        where: {
+          id: args.id,
+        },
+      });
+    },
   },
 };
