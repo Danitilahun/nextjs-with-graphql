@@ -50,7 +50,7 @@ const Novel = ({ params: { id } }: Props) => {
       </p>
     );
 
-  return <article className=""></article>;
+  return <article className="max-w-5xl bg-red"></article>;
 };
 
 export default Novel;
