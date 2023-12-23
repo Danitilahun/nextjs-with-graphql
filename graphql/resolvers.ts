@@ -29,4 +29,15 @@ export const resolvers = {
       });
     },
   },
+  Mutation: {
+    // add novel
+    addNovel: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.novel.create({
+        data: {
+          title: args.title,
+          image: args.image,
+        },
+      });
+    },
+  },
 };
