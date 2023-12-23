@@ -14,13 +14,13 @@ type Novel {
     id: ID!
     name: String
     novelId: String
-  };
+  }
 
   type Query {
 	novel(id: ID!): Novel 
     novels: [Novel]
 
-  };
+  }
 
 
   type Mutation {
