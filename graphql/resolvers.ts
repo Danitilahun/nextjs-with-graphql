@@ -10,5 +10,12 @@ export const resolvers = {
         },
       });
     },
+
+    // get all novels
+    novels: async (_parent: any, _args: any, context: Context) => {
+      return await context.prisma.novel.findMany({
+        include: { author: true },
+      });
+    },
   },
 };
