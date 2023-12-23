@@ -8,4 +8,12 @@ type Novel {
     authors: [Author]
   }
 
+
+  type Author {
+    id: ID!
+    name: String
+    novelId: String
+  };
+
+
 `;
