@@ -1,7 +1,8 @@
 "use client";
 
+import { ADD_AUTHOR } from "@/graphql/mutation";
 import { GET_NOVEL } from "@/graphql/queries";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 
 type Props = {
@@ -19,6 +20,10 @@ const Novel = ({ params: { id } }: Props) => {
     variables: { id },
   });
 
+  const [addAuthor] = useMutation(ADD_AUTHOR, {
+    variables: { novelId: id, name },
+    refetchQueries: [{ query: GET_NOVEL, variables: { id } }],
+  });
   return <></>;
 };
 
