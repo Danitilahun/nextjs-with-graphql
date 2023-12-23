@@ -1,6 +1,6 @@
 "use client";
 
-import { ADD_AUTHOR, DELETE_AUTHOR } from "@/graphql/mutation";
+import { ADD_AUTHOR, DELETE_AUTHOR, UPDATE_NOVEL } from "@/graphql/mutation";
 import { GET_NOVEL } from "@/graphql/queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
@@ -26,6 +26,11 @@ const Novel = ({ params: { id } }: Props) => {
   });
 
   const [deleteAuthor] = useMutation(DELETE_AUTHOR, {
+    refetchQueries: [{ query: GET_NOVEL, variables: { id } }],
+  });
+
+  const [updateNovel] = useMutation(UPDATE_NOVEL, {
+    variables: { id: id, title: title, image: url },
     refetchQueries: [{ query: GET_NOVEL, variables: { id } }],
   });
   return <></>;
