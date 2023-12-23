@@ -52,5 +52,14 @@ export const resolvers = {
         },
       });
     },
+
+    // delete novel
+    deleteNovel: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.novel.delete({
+        where: {
+          id: args.id,
+        },
+      });
+    },
   },
 };
