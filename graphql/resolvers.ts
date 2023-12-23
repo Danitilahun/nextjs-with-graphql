@@ -61,5 +61,17 @@ export const resolvers = {
         },
       });
     },
+
+    // Author Mutations
+
+    // add author
+    addAuthor: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.author.create({
+        data: {
+          novelId: args.novelId,
+          name: args.name,
+        },
+      });
+    },
   },
 };
